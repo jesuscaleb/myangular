@@ -1,0 +1,25 @@
+<app-slider [name]="'Página desconocida'" [size]="'small'"></app-slider>
+
+<div class="center mt mx-auto">
+  <section id="content">
+    <h2 class="subheader">Página no tan defectuosa ha sido cargada</h2>
+
+    <div *ngIf="nombre && apellido; else noParam">
+      <p>El nombre es: {{ nombre }}</p>
+      <p>El apellido es: {{ apellido }}</p>
+    </div>
+
+    <ng-template #noParam>
+      <p>Vaya...</p>
+      <p>Esta página no tiene parámetros</p>
+      <p>Que tal si ponemos algunos ahora ?</p>
+      <button class="btn mx-auto" (click)="redirect()">
+        Ingresar parámetros
+      </button>
+    </ng-template>
+    
+  </section>
+
+  <app-sidebar></app-sidebar>
+
+</div>

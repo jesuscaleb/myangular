@@ -1,0 +1,39 @@
+<app-slider [name]="'Mi Página'" [size]="'small'"></app-slider>
+
+<div class="center mt mx-auto">
+  <section id="content">
+    <!-- <div class="content">
+      <div class="terminal">
+        <pre>
+Este es un párrafo de texto para demostrar el funcionamiento de este pequeño componente.</pre
+        >
+        <pre>{{ foo }}</pre>
+        <pre>{{ paragraph }}</pre>
+      </div>
+    </div> -->
+
+    <div id="favorite" *ngIf="favorite">
+      <h2 class="subheader">
+        Pokemón favorito
+      </h2>
+
+      <h4>{{favorite.name}}</h4>
+      
+      <h4>{{date | date: "fullDate"}}</h4>
+
+      <!-- Testing custom pipe -->
+      <h4>{{ 12 | espar }}</h4>
+    </div>
+
+    <!-- Desplegar pokemones -->
+    <div id="articles" *ngIf="pokemons">
+      <div *ngFor="let pokemon of pokemons">
+        <app-pokemon 
+          [pokemon]="pokemon"
+          (markAsFavorite)="showFavoritePokemons($event)"
+        ></app-pokemon>
+      </div>
+    </div>
+  </section>
+  <app-sidebar></app-sidebar>
+</div>
