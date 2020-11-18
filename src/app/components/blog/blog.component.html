@@ -2,7 +2,26 @@
 
 <div class="center mt mx-auto">
   <section id="content">
-    <h2 class="subheader">Blog</h2>
+   
+    <h2 class="subheader">Lista de artículos</h2>
+    
+    <div class="loading" *ngIf="loading">
+
+      <ngx-loading 
+        [show]="loading" 
+      ></ngx-loading>
+    </div>
+ 
+    <app-articles 
+      *ngIf="!loading && articles"
+      [articles]="articles"
+    >
+    </app-articles>
+    
+    <div id="error" *ngIf="errorString != ''">
+      <p>{{errorString}}</p>      
+    </div>
+    
   </section>
   <app-sidebar></app-sidebar>
 </div>

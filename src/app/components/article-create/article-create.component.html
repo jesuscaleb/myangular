@@ -1,0 +1,68 @@
+<div class="center mt mx-auto">
+    <section id="content">
+      <h2 class="subheader">{{page_title}}</h2>
+  
+      <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Título</label>
+          <input
+            type="text"
+            name="title"
+            #title="ngModel"
+            [(ngModel)]="article.title"
+            required
+          />
+          <small *ngIf="!title.valid && title.touched">
+            El campo título no es válido.
+          </small>
+        </div>
+  
+        <div class="form-group">
+          <label for="bio">Contenido</label>
+          <textarea
+            name="content"
+            #content="ngModel"
+            [(ngModel)]="article.content"
+            required
+          ></textarea>
+          <small *ngIf="!content.valid && content.touched">
+            El campo contenido no es válido.
+          </small>
+        </div>
+  
+        <div class="form-group">
+
+          <div *ngIf="is_edit" class="image-thumb">
+            <img
+              *ngIf="article.image"
+              src="{{url + 'get-image/' + article.image}}"
+              alt="{{article.title}}"
+            />
+          </div>
+          <angular-file-uploader
+            [config]="afuConfig"
+            (ApiResponse)="imageUpload($event)">
+          </angular-file-uploader>
+        </div>        
+        
+        <input
+        type="submit"
+        value="Enviar"
+        class="btn btn-success"
+          [disabled]="articleForm.invalid"
+          [ngClass]="{
+            'btn-disabled': articleForm.invalid
+          }"
+          />
+          
+          <ngx-loading 
+          [show]="loading" 
+          ></ngx-loading>
+          <div class="clearfix"></div>
+      </form>
+  
+      
+    </section>
+    <app-sidebar></app-sidebar>
+  </div>
+  

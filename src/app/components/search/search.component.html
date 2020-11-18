@@ -1,8 +1,7 @@
-<app-slider [name]="'Bienvenido al Curso de Angular con Víctor Robles de victorroblesweb.es'"></app-slider>
-
 <div class="center mt mx-auto">
   <section id="content">
-    <h2 class="subheader">{{title}}</h2>
+   
+    <h2 class="subheader">Resultados de búsqueda</h2>
 
     <div class="loading" *ngIf="loading">
 
@@ -11,17 +10,16 @@
       ></ngx-loading>
 
     </div>
-
+          
     <app-articles 
-      *ngIf="!loading && articles"
-      [articles] = "articles"
+      [articles]="articles"
     >
     </app-articles>
 
     <div id="error" *ngIf="errorString != ''">
-      <p>{{errorString}}</p>      
+      <p>{{errorString}}</p>
     </div>
-
+    
   </section>
   <app-sidebar></app-sidebar>
 </div>

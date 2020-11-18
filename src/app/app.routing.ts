@@ -9,12 +9,20 @@ import { FormComponent } from "./components/form/form.component";
 import { PageComponent } from "./components/page/page.component";
 import { MyComponent } from "./components/mycomponent/mycomponent.component";
 import { e404Component } from './components/e404/e404.component';
+import { ArticleComponent } from './components/article/article.component';
+import { SearchComponent } from './components/search/search.component';
+import { ArticleCreateComponent } from './components/article-create/article-create.component';
+import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 
 // Configuración de rutas | Array de rutas
 const appRoutes : Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
     {path: 'blog', component: BlogComponent},
+    {path: 'blog/article/:id', component: ArticleComponent},
+    {path: 'blog/create', component: ArticleCreateComponent},
+    {path: 'blog/edit/:id', component: ArticleEditComponent},
+    {path: 'search/:search', component: SearchComponent},
     {path: 'form', component: FormComponent},
     {path: 'page', component: MyComponent},
     {path: 'test', component: PageComponent},
